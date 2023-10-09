@@ -4,7 +4,7 @@ import re
 import openpyxl
 
 EMAIL_REGEX = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}")
-MAX_TOTAL_EMAILS = 12500  # Cap on total emails to extract
+MAX_TOTAL_EMAILS = 12200000  # Cap on total emails to extract
 
 DEFAULT_EMAILS = [
     "checkemail.hdfclife@gmail.com",
@@ -26,6 +26,7 @@ DEFAULT_EMAILS = [
     "sunsumon@gmail.com",
     "rohitvinod92@gmail.com"
 ]
+
 def identify_email_column(df):
     """
     Identify the column that contains email addresses.
@@ -88,7 +89,7 @@ def save_to_csv(emails, base_path):
     Save emails to a CSV file.
     If there are more than 5,000 emails, multiple files will be created.
     """
-    MAX_EMAILS_PER_FILE = 5500 - len(DEFAULT_EMAILS)  # Adjusting for default emails
+    MAX_EMAILS_PER_FILE = 5500000 - len(DEFAULT_EMAILS)  # Adjusting for default emails
     num_files = len(emails) // MAX_EMAILS_PER_FILE + (len(emails) % MAX_EMAILS_PER_FILE > 0)
     
     for i in range(num_files):
