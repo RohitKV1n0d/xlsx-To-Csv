@@ -27,6 +27,8 @@ def split_csv_file(filename, row_limit=1000000):
         chunk.to_csv(chunk_filename, index=False)
         print(f"Saved chunk to {chunk_filename}")
 
+    return True
+
 # Example usage
 filename = "all_in_one_12L.csv"
 split_csv_file(filename)
